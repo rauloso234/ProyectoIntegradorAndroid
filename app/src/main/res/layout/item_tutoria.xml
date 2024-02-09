@@ -16,6 +16,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             tools:background="@color/black"
+            android:src="@drawable/imagen"
             app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -38,28 +39,41 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Hola"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
             app:layout_constraintTop_toBottomOf="@+id/tvNombreTutoria"
-            app:layout_constraintStart_toEndOf="@id/ivUser" />
+            tools:text="Hola" />
         />
+
         <TextView
             android:id="@+id/tvEdif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Hola"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+
+            app:layout_constraintStart_toEndOf="@id/ivUser"
             app:layout_constraintTop_toBottomOf="@+id/tvAula"
-            app:layout_constraintStart_toEndOf="@id/ivUser" />
+            tools:text="Hola" />
         />
+
         <TextView
             android:id="@+id/tvHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Hola"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/ivUser"
             app:layout_constraintTop_toBottomOf="@+id/tvEdif"
-            app:layout_constraintStart_toEndOf="@id/ivUser" />
-        />
+            tools:text="Hola" />
+
+        <ImageButton
+            android:id="@+id/dotsBtn"
+            style="?android:attr/actionOverflowButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".formularioTutorias">
+
+    <TextView
+        android:id="@+id/tvTituloForm"
+        android:layout_width="233dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="64dp"
+        android:text="Crear una tutoria"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtTituloTuto"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:hint="Titulo de la Tutoria"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloForm" />
+
+    <EditText
+        android:id="@+id/edtAula"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:hint="Numero de Aula"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTituloTuto" />
+
+    <EditText
+        android:id="@+id/edtEdif"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:hint="Nombre de Edificio "
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAula" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:hint="Fecha de la tutoria"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEdif" />
+
+    <EditText
+        android:id="@+id/edtNombreAlum"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:hint="Nombre de la persona citada"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+    <Button
+        android:id="@+id/btnCrear"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="88dp"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNombreAlum" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

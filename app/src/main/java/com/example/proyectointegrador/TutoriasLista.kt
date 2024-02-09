@@ -1,12 +1,12 @@
 package com.example.proyectointegrador
 
-import java.util.Date
+import java.time.LocalDateTime
 
 class TutoriasLista {
     companion object{
-       val tutoriasList = listOf<Tutorias>(
+       val tutoriasList = listOf(
            Tutorias("Ivan", "Reunion de Emergencia",
-               "Raúl Fernandez",250,"Madrid", Date(2023, 11, 12)
+               "Raúl Fernandez","B04","Madrid", LocalDateTime.parse("2023-02-12T12:30:00")
            )
        )
     }
