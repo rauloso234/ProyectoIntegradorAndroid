@@ -2,6 +2,8 @@ package com.example.proyectointegrador
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.proyectointegrador.adapter.tutoriasAdapter
 import com.example.proyectointegrador.databinding.ActivityFormularioTutoriasBinding
 import java.time.LocalDateTime
 
@@ -26,9 +28,18 @@ class formularioTutorias : AppCompatActivity() {
             // Crea una nueva instancia de Tutorias con los valores del formulario
             val nuevaTutoria = Tutorias(nomProf, tutoTitle, PersonaCitada, aula, Edificio,
                 LocalDateTime.parse("2023-02-12T12:30:00"))
+            val adapter = intent.getSerializableExtra("RECYCLER_VIEW_ADAPTER") as? tutoriasAdapter
+            adapter?.agregarTutoria(nuevaTutoria)
 
             // Agrega la nueva tutoría a la lista tutoriasList en TutoriasLista
             TutoriasLista.tutoriasList.plus(nuevaTutoria)
+
+            // Actualiza la lista en el adaptador y notifica los cambios
+            adapter?.actualizarLista(TutoriasLista.tutoriasList)
+            finish()
         }
     }
+
+
+
 }

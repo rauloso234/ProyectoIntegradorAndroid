@@ -1,11 +1,15 @@
 package com.example.proyectointegrador
 
-import androidx.appcompat.app.AppCompatActivity
+
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectointegrador.adapter.tutoriasAdapter
 import com.example.proyectointegrador.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,11 +19,39 @@ class MainActivity : AppCompatActivity() {
         val view= binding.root
         setContentView(view)
         initRecyclerView()
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.Navegation)
+        bottomNavigationView.selectedItemId = R.id.Tuto
+
+        binding.BtnAdd.setOnClickListener {
+            startActivity(Intent(this, formularioTutorias::class.java))
+        }
+
+        binding.Navegation.setOnItemSelectedListener { item ->
+            when (item.getItemId()) {
+                R.id.Tuto -> {
+                    return@setOnItemSelectedListener true
+                }
+                R.id.calendar -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Calendario::class.java
+                        )
+                    )
+
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
+            }
+            false
+        }
+
 
     }
     fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.tutorias)
+        val tutoriasList: MutableList<Tutorias> = TutoriasLista.tutoriasList.toMutableList()
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = tutoriasAdapter(TutoriasLista.tutoriasList)
+        recyclerView.adapter = tutoriasAdapter(tutoriasList)
     }
 }
