@@ -19,6 +19,9 @@
             android:name=".Calendario"
             android:exported="false" />
         <activity
+            android:name=".Notificaciones"
+            android:exported="false" />
+        <activity
             android:name=".formularioTutorias"
             android:exported="false" />
         <activity
