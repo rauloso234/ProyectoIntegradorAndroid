@@ -28,9 +28,7 @@ class TutoriasRecycler : AppCompatActivity() {
 
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
-                R.id.Tuto -> {
-                    return@setOnItemSelectedListener true
-                }
+
                 R.id.calendar -> {
                     startActivity(
                         Intent(

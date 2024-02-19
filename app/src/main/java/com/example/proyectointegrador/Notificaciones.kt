@@ -22,6 +22,13 @@ class Notificaciones : AppCompatActivity() {
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
                 R.id.Tuto -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            TutoriasRecycler::class.java
+                        )
+                    )
+                    finish()
                     return@setOnItemSelectedListener true
                 }
                 R.id.calendar -> {
@@ -35,11 +42,7 @@ class Notificaciones : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
-                R.id.Notificaciones -> {
-                    startActivity(Intent(this, Notificaciones::class.java))
-                    finish()
-                    return@setOnItemSelectedListener true
-                }
+
                 R.id.Profesores -> {
                     startActivity(Intent(this, Profesores::class.java))
                     finish()

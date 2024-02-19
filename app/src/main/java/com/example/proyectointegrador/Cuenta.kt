@@ -15,19 +15,27 @@ class Cuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityCuentaBinding.inflate(layoutInflater)
-
-        setContentView(R.layout.activity_cuenta)
+        val view = binding.root
+        setContentView(view)
 
         optionsListView = findViewById(R.id.account_options)
         val options = arrayOf("Datos personales", "Configuración de contraseñas", "Notificaciones", "Accesibilidad", "Dispositivos Conectados", "Cuentas Vinculadas", "Centro de Ayuda")
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, options)
         optionsListView.adapter = adapter
 
-
+        binding.Navegation.selectedItemId = R.id.Cuenta
 
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
                 R.id.Tuto -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            TutoriasRecycler::class.java
+                        )
+                    )
+
+                    finish()
                     return@setOnItemSelectedListener true
                 }
                 R.id.calendar -> {
@@ -51,11 +59,7 @@ class Cuenta : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
-                R.id.Cuenta -> {
-                    startActivity(Intent(this, Cuenta::class.java))
-                    finish()
-                    return@setOnItemSelectedListener true
-                }
+
             }
             false
         }

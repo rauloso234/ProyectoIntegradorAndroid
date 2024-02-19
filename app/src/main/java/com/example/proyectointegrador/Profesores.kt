@@ -22,6 +22,14 @@ class Profesores : AppCompatActivity() {
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
                 R.id.Tuto -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            TutoriasRecycler::class.java
+                        )
+                    )
+
+                    finish()
                     return@setOnItemSelectedListener true
                 }
                 R.id.calendar -> {
@@ -40,11 +48,7 @@ class Profesores : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
-                R.id.Profesores -> {
-                    startActivity(Intent(this, Profesores::class.java))
-                    finish()
-                    return@setOnItemSelectedListener true
-                }
+
                 R.id.Cuenta -> {
                     startActivity(Intent(this, Cuenta::class.java))
                     finish()
