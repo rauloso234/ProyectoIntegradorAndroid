@@ -22,7 +22,7 @@ class Login : AppCompatActivity() {
             // Verificar si el correo y la contraseña son correctos
             if (emailInput.text.toString() == "guillermo.callizaya@live.u-tad.com" && passwordInput.text.toString() == "holahola") {
                 // Si son correctos, navegar a MainActivity
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, Calendario::class.java)
                 startActivity(intent)
             } else {
                 // Si no son correctos, mostrar un mensaje

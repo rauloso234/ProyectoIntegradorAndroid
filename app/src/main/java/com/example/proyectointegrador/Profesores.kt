@@ -45,6 +45,11 @@ class Profesores : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
+                R.id.Cuenta -> {
+                    startActivity(Intent(this, Cuenta::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
             }
             false
         }

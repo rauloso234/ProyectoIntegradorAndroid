@@ -1,23 +1,30 @@
 package com.example.proyectointegrador
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectointegrador.R
-import com.example.proyectointegrador.adapter.NotificacionesAdapter
-import com.example.proyectointegrador.databinding.ActivityNotificacionesBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectointegrador.adapter.tutoriasAdapter
+import com.example.proyectointegrador.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class Notificaciones : AppCompatActivity() {
 
-    private lateinit var binding: ActivityNotificacionesBinding
+class TutoriasRecycler : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNotificacionesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.Navegation.selectedItemId = R.id.Notificaciones
-       initRecyclerView()
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        val view= binding.root
+        setContentView(view)
+        initRecyclerView()
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.Navegation)
+        bottomNavigationView.selectedItemId = R.id.Tuto
 
+        binding.BtnAdd.setOnClickListener {
+            startActivity(Intent(this, formularioTutorias::class.java))
+        }
 
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
@@ -50,15 +57,17 @@ class Notificaciones : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
+
             }
             false
         }
 
 
     }
-
     fun initRecyclerView(){
-        binding.rvNotificaciones.layoutManager = LinearLayoutManager(this)
-        binding.rvNotificaciones.adapter = NotificacionesAdapter(NotificacionesTestData.notificaciones)
+        val recyclerView = findViewById<RecyclerView>(R.id.tutorias)
+        val tutoriasList: MutableList<Tutorias> = TutoriasLista.tutoriasList.toMutableList()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = tutoriasAdapter(tutoriasList)
     }
 }

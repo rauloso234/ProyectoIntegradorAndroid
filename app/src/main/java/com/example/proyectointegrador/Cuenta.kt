@@ -1,30 +1,29 @@
 package com.example.proyectointegrador
 
-
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectointegrador.adapter.tutoriasAdapter
+import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import com.example.proyectointegrador.databinding.ActivityCuentaBinding
 import com.example.proyectointegrador.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
+class Cuenta : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var optionsListView: ListView
+    private lateinit var binding: ActivityCuentaBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
-        val view= binding.root
-        setContentView(view)
-        initRecyclerView()
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.Navegation)
-        bottomNavigationView.selectedItemId = R.id.Tuto
+        binding= ActivityCuentaBinding.inflate(layoutInflater)
 
-        binding.BtnAdd.setOnClickListener {
-            startActivity(Intent(this, formularioTutorias::class.java))
-        }
+        setContentView(R.layout.activity_cuenta)
+
+        optionsListView = findViewById(R.id.account_options)
+        val options = arrayOf("Datos personales", "Configuración de contraseñas", "Notificaciones", "Accesibilidad", "Dispositivos Conectados", "Cuentas Vinculadas", "Centro de Ayuda")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, options)
+        optionsListView.adapter = adapter
+
+
 
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
@@ -52,17 +51,14 @@ class MainActivity : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
-
+                R.id.Cuenta -> {
+                    startActivity(Intent(this, Cuenta::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
             }
             false
         }
 
-
-    }
-    fun initRecyclerView(){
-        val recyclerView = findViewById<RecyclerView>(R.id.tutorias)
-        val tutoriasList: MutableList<Tutorias> = TutoriasLista.tutoriasList.toMutableList()
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = tutoriasAdapter(tutoriasList)
     }
 }

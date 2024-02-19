@@ -3,8 +3,6 @@ package com.example.proyectointegrador
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CalendarView
-import android.widget.TextView
 import com.example.proyectointegrador.databinding.ActivityCalendarioBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -36,7 +34,7 @@ class Calendario : AppCompatActivity() {
                     startActivity(
                         Intent(
                             applicationContext,
-                            MainActivity::class.java
+                            TutoriasRecycler::class.java
                         )
                     )
 
@@ -50,6 +48,11 @@ class Calendario : AppCompatActivity() {
                 }
                 R.id.Profesores -> {
                     startActivity(Intent(this, Profesores::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.Cuenta -> {
+                    startActivity(Intent(this, Cuenta::class.java))
                     finish()
                     return@setOnItemSelectedListener true
                 }
