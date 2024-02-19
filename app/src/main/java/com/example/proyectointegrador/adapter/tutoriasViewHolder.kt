@@ -1,6 +1,5 @@
 package com.example.proyectointegrador.adapter
 
-import android.view.MenuInflater
 import android.view.View
 import android.widget.PopupMenu
 import com.example.proyectointegrador.R
@@ -14,7 +13,7 @@ import java.time.format.DateTimeFormatter
 class tutoriasViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val binding = ItemTutoriaBinding.bind(itemView)
     fun render(tutoria: Tutorias){
-        binding.tvNombreTutoria.text = tutoria.tituloTutoria
+        binding.tvNombreTutoria.text = tutoria.tituloAsunto
         val text = "Aula: " + tutoria.NumAula.toString()
         binding.tvAula.text =text
         binding.tvEdif.text = tutoria.NombreEdif
