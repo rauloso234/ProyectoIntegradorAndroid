@@ -4,21 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectointegrador.R
 import com.example.proyectointegrador.adapter.NotificacionesAdapter
-import com.example.proyectointegrador.databinding.ActivityNotificacionesBinding
+import com.example.proyectointegrador.adapter.ProfesoresAdapter
+import com.example.proyectointegrador.databinding.ActivityProfesoresBinding
 
-class Notificaciones : AppCompatActivity() {
+class Profesores : AppCompatActivity() {
 
-    private lateinit var binding: ActivityNotificacionesBinding
+    lateinit var binding: ActivityProfesoresBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNotificacionesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.Navegation.selectedItemId = R.id.Notificaciones
-       initRecyclerView()
-
-
+        binding = ActivityProfesoresBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.Navegation
+        initRecyclerView()
+        binding.Navegation.selectedItemId = R.id.Profesores
         binding.Navegation.setOnItemSelectedListener { item ->
             when (item.getItemId()) {
                 R.id.Tuto -> {
@@ -49,11 +49,10 @@ class Notificaciones : AppCompatActivity() {
             false
         }
 
-
     }
 
     fun initRecyclerView(){
-        binding.rvNotificaciones.layoutManager = LinearLayoutManager(this)
-        binding.rvNotificaciones.adapter = NotificacionesAdapter(NotificacionesTestData.notificaciones)
+        binding.rvProfesores.layoutManager = LinearLayoutManager(this)
+        binding.rvProfesores.adapter = ProfesoresAdapter(ProfesoresTestData.profesores)
     }
 }

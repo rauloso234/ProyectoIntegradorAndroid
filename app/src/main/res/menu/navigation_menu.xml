@@ -18,6 +18,13 @@
         android:layout_height="wrap_content"
         android:title="Notificaciones"
         android:id="@+id/Notificaciones"
-        android:icon="@drawable/tutoria"/>
+        android:icon="@drawable/notificacion"/>
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Profesores"
+        android:id="@+id/Profesores"
+        android:icon="@drawable/profesor" />
 
 </menu>

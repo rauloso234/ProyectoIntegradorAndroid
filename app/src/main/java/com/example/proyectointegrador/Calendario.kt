@@ -43,6 +43,16 @@ class Calendario : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
+                R.id.Notificaciones -> {
+                    startActivity(Intent(this, Notificaciones::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.Profesores -> {
+                    startActivity(Intent(this, Profesores::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
             }
             false
         }

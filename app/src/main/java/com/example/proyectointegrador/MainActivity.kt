@@ -47,6 +47,12 @@ class MainActivity : AppCompatActivity() {
                     finish()
                     return@setOnItemSelectedListener true
                 }
+                R.id.Profesores -> {
+                    startActivity(Intent(this, Profesores::class.java))
+                    finish()
+                    return@setOnItemSelectedListener true
+                }
+
             }
             false
         }

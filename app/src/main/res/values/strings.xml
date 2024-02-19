@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">proyecto Integrador</string>
     <string name="avisos">Avisos</string>
+    <string name="tituloProfesores">Profesores</string>
 </resources>
